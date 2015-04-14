@@ -1,0 +1,130 @@
+// *************************************
+//
+//   Video
+//   -> Video modal
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// (.is-video-playing)
+//
+// .video-overlay
+//   %a.video-close
+//
+// .video
+//  // ...
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// ----- Borders ----- //
+
+$video-borderRadius: 6px !default
+
+// ----- Colors ----- //
+
+$video-close-color: #fff !default
+$video-close-fontSize: 300% !default
+$video-overlay-background: black !default
+
+// ----- Sizing ----- //
+
+$video-maxWidth: 960px !default
+
+// -------------------------------------
+//   Helpers
+// -------------------------------------
+
+// ----- Faux Hide ----- //
+
+.fauxHide
+  overflow: hidden
+  opacity: 0
+  visibility: hidden
+
+// ----- Faux Show ----- //
+
+.fauxShow
+  overflow: visible
+  opacity: 1
+  visibility: visible
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.video
+  @extend .fauxHide
+  border-radius: $video-borderRadius
+  left: 50%
+  max-width: $video-maxWidth
+  position: fixed
+  top: 50%
+  transform: translate(-50%, -40%)
+  transition: all 0.3s ease-in-out
+  z-index: 100
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// ----- Playing ----- //
+
+.is-video-playing
+  position: relative
+  overflow: hidden
+
+  .video,
+  .video-close,
+  .video-overlay
+    @extend .fauxShow
+
+  .video
+    transform: translate(-50%, -50%)
+    transition: all 0.3s 0.5s ease-in-out
+
+  .video-close
+    transform: scale(1)
+    transition: all 0.5s 0.7s ease-in-out
+
+  .video-overlay
+    opacity: 0.9
+    transition: all 0.5s ease-in-out
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Close ----- //
+
+.video-close
+  @extend .fauxHide
+  border: 0
+  color: $video-close-color
+  display: block
+  font-size: $video-close-fontSize
+  position: fixed
+  right: 20px
+  text-decoration: none
+  top: 10px
+  transform: scale(0.5)
+  transition: all 0.3s ease-in-out
+
+// ----- Overlay ----- //
+
+.video-overlay
+  @extend .fauxHide
+  background: $video-overlay-background
+  bottom: 0
+  height: 100%
+  left: 0
+  position: fixed
+  right: 0
+  top: 0
+  transition: all 0.3s 0.5s ease-in-out
+  width: 100%
+  z-index: 99
