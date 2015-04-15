@@ -41,6 +41,7 @@
       overlayNode : '.js-video-overlay'
       closeNode   : '.js-video-close'
       activeClass : 'is-video-playing'
+      playDelay   : 1000
     , options
 
     _video = _settings.$video[0]
@@ -95,7 +96,7 @@
 
         setTimeout( ->
           _play()
-        , 1000 )
+        , _settings.playDelay )
 
       when 'close'
         _settings.$element.removeClass(_settings.activeClass)
