@@ -36,7 +36,7 @@
       $element    : $( 'body')
       $trigger    : $( '.js-video-trigger' )
       $video      : $( '.js-video-element' )
-      $close      : $( '<a href="#" class="video-close js-video-close">&times;</a>' )
+      $close      : $( '<a href="#" class="video-close js-video-close" aria-label="close">&times;</a>' )
       $overlay    : $( '<div class="video-overlay js-video-overlay"></div>' )
       overlayNode : '.js-video-overlay'
       closeNode   : '.js-video-close'
