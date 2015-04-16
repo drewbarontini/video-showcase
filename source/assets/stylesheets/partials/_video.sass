@@ -33,6 +33,7 @@ $video-overlay-background: black !default
 
 // ----- Sizing ----- //
 
+$video-space: 2.5em !default
 $video-maxWidth: 960px !default
 
 // -------------------------------------
@@ -59,13 +60,15 @@ $video-maxWidth: 960px !default
 
 .video
   @extend .fauxHide
-  border-radius: $video-borderRadius
+  box-sizing: border-box
   left: 50%
-  max-width: $video-maxWidth
+  max-width: 1400px
+  padding: $video-space
   position: fixed
   top: 50%
   transform: translate(-50%, -40%)
   transition: all 0.3s ease-in-out
+  width: 100%
   z-index: 100
 
 // -------------------------------------
@@ -113,6 +116,12 @@ $video-maxWidth: 960px !default
   top: 10px
   transform: scale(0.5)
   transition: all 0.3s ease-in-out
+
+// ----- Element ----- //
+
+.video-element
+  border-radius: $video-borderRadius
+  max-width: 100%
 
 // ----- Overlay ----- //
 
