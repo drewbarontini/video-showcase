@@ -26,6 +26,7 @@
   _settings  = {}
   _isPlaying = false
   _video     = null
+  _videos    = null
 
   # -------------------------------------
   #   Initialize
@@ -34,6 +35,7 @@
   init = ( options ) ->
     _settings = $.extend
       $element    : $( 'body')
+      $container  : $( '.js-video' )
       $trigger    : $( '.js-video-trigger' )
       $video      : $( '.js-video-element' )
       $close      : $( '<a href="#" class="video-close js-video-close" aria-label="close">&times;</a>' )
@@ -42,6 +44,7 @@
       closeNode   : '.js-video-close'
       activeClass : 'is-video-playing'
       playDelay   : 1000
+      vendor      : null
     , options
 
     _video = _settings.$video[0]
@@ -94,13 +97,14 @@
           _settings.$element.addClass(_settings.activeClass)
         , 200 )
 
-        setTimeout( ->
-          _play()
-        , _settings.playDelay )
+        unless _settings.vendor?
+          setTimeout( ->
+            _play()
+          , _settings.playDelay )
 
       when 'close'
         _settings.$element.removeClass(_settings.activeClass)
-        _pause()
+        _pause() unless _settings.vendor?
 
   # -------------------------------------
   #   Play
@@ -138,5 +142,3 @@
 #
 # VideoShowcase.init()
 #
-
-jQuery ($) -> VideoShowcase.init()

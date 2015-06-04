@@ -12,7 +12,7 @@
 // .video-overlay
 //   %a.video-close
 //
-// .video
+// .video[iframe]
 //  // ...
 //
 // *************************************
@@ -61,8 +61,9 @@ $video-maxWidth: 960px !default
 .video
   @extend .fauxHide
   box-sizing: border-box
+  height: auto
   left: 50%
-  max-width: 1400px
+  max-width: 1280px
   padding: $video-space
   position: fixed
   top: 50%
@@ -70,6 +71,25 @@ $video-maxWidth: 960px !default
   transition: all 0.3s ease-in-out
   width: 100%
   z-index: 100
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- iFrame ----- //
+
+.video--vendor
+  height: 0
+  overflow: hidden
+  padding-bottom: 56.25% // 16:9
+  max-width: 100%
+
+  iframe, object, embed
+    left: 0
+    height: 100%
+    position: absolute
+    top: 0
+    width: 100%
 
 // -------------------------------------
 //   States
