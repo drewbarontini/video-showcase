@@ -1,7 +1,7 @@
 Video Showcase
 ==============
 
-- JavaScript (CoffeeScript) in `source/assets/javascripts/video.coffee`
+- JavaScript (CoffeeScript) in `source/assets/javascripts/videoShowcase.coffee`
 - Styles (Sass) in `source/assets/stylesheets/partials/_video.sass`
 
 Usage
