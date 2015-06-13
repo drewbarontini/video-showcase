@@ -15,4 +15,4 @@
 #   Document Ready
 # -------------------------------------
 
-jQuery ($) -> VideoShowcase.init()
+jQuery ($) -> VideoShowcase.init({ vendor: true, ytVideo: true })

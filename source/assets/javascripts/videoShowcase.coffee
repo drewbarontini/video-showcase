@@ -12,6 +12,10 @@
 # @param overlayNode { string (selector) }
 # @param closeNode   { string (selector) }
 # @param activeClass { string }
+# @param playDelay   { integerstring }
+# @param vendor      { boolean }
+# @param ytVideo     { boolean }
+# @param dataAttrSrc { string }
 #
 # *************************************
 
@@ -27,6 +31,7 @@
   _isPlaying = false
   _video     = null
   _videos    = null
+  _videoSrc  = null
 
   # -------------------------------------
   #   Initialize
@@ -45,11 +50,20 @@
       activeClass : 'is-video-playing'
       playDelay   : 1000
       vendor      : null
+      ytVideo     : null
     , options
 
     _video = _settings.$video[0]
 
+    _getYouTubeSrc()
     _setEventHandlers()
+
+  # -------------------------------------
+  #   Get YouTube Source
+  # -------------------------------------
+
+  _getYouTubeSrc = ->
+    _videoSrc = $( _video ).attr( 'src' )
 
   # -------------------------------------
   #   Set Event Handlers
@@ -102,9 +116,13 @@
             _play()
           , _settings.playDelay )
 
+        if _settings.ytVideo?
+          $( _video ).attr( 'src', "#{ _videoSrc }?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1" )
+
       when 'close'
         _settings.$element.removeClass(_settings.activeClass)
         _pause() unless _settings.vendor?
+        $( _video ).attr( 'src', _videoSrc ) if _settings.ytVideo?
 
   # -------------------------------------
   #   Play
