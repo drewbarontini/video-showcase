@@ -76,20 +76,10 @@ $video-maxWidth: 960px !default
 //   Modifiers
 // -------------------------------------
 
-// ----- iFrame ----- //
+// ----- Vendor ----- //
 
 .video--vendor
-  height: 0
-  overflow: hidden
-  padding-bottom: 56.25% // 16:9
-  max-width: 100%
-
-  iframe, object, embed
-    left: 0
-    height: 100%
-    position: absolute
-    top: 0
-    width: 100%
+  padding: 0
 
 // -------------------------------------
 //   States
@@ -142,6 +132,20 @@ $video-maxWidth: 960px !default
 .video-element
   border-radius: $video-borderRadius
   max-width: 100%
+
+// ----- Embed ----- //
+
+.video-embed
+  height: 0
+  overflow: hidden
+  padding-bottom: 56.25% // 16:9
+
+  iframe, object, embed
+    left: 0
+    height: 100% !important
+    position: absolute
+    top: 0
+    width: 100% !important
 
 // ----- Overlay ----- //
 

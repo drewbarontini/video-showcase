@@ -23,7 +23,8 @@ If you want to use YouTube/Vimeo videos:
 
 ```haml
 .video.video--vendor.js-video
-  %iframe.js-video-element(width='560' height='315' src='https://www.youtube.com/embed/RljpEJNFVFo' frameborder='0' allowfullscreen)
+  .video-embed
+    %iframe.js-video-element(width='560' height='315' src='https://www.youtube.com/embed/RljpEJNFVFo' frameborder='0' allowfullscreen)
 ```
 
 ```coffeescript
