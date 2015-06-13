@@ -30,7 +30,6 @@
   _settings  = {}
   _isPlaying = false
   _video     = null
-  _videos    = null
   _videoSrc  = null
 
   # -------------------------------------
