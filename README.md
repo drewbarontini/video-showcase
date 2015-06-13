@@ -30,3 +30,5 @@ If you want to use YouTube/Vimeo videos:
 ```coffeescript
 jQuery ($) -> VideoShowcase.init( { vendor: true } )
 ```
+
+And, if it's a YouTube video, add `ytVideo: true`.
